@@ -1,0 +1,20 @@
+{
+  "clientes": [
+    {
+      "nombre": "Pedro Fernandez",
+      "empresa": "Panda Designers",
+      "email": "pand4designers@gmail.com",
+      "telefono": "3184629849",
+      "notas": "Provando esta re-verga ",
+      "id": 1
+    },
+    {
+      "nombre": "Alejandro",
+      "empresa": "Alejandro Dev",
+      "email": "alejandro@correo.com",
+      "telefono": "03253155331",
+      "notas": "jodiendo",
+      "id": 2
+    }
+  ]
+}
