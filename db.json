@@ -1,0 +1,36 @@
+{
+  "clientes": [
+    {
+      "nombre": "Pedro Fernandez",
+      "empresa": "Panda Designers",
+      "email": "pand4designers@gmail.com",
+      "telefono": "3184629849",
+      "notas": "Provando esta re-verga ",
+      "id": 1
+    },
+    {
+      "nombre": "Alejandro",
+      "empresa": "Alejandro Dev",
+      "email": "alejandro@correo.com",
+      "telefono": "03253155331",
+      "notas": "jodiendo",
+      "id": 2
+    },
+    {
+      "nombre": "Rafel Alejandro",
+      "empresa": "dasf",
+      "email": "comoe@correo.com",
+      "telefono": "32434223432",
+      "notas": "",
+      "id": 3
+    },
+    {
+      "nombre": "Maryoris Ramirez",
+      "empresa": "Jodedera especial",
+      "email": "mayorisramirez@gmail.com",
+      "telefono": "31554694535",
+      "notas": "esta chica rejode por todo esta metida en todoas las panteletas de cuadritos avidas y por aver ",
+      "id": 4
+    }
+  ]
+}
