@@ -28,7 +28,7 @@ export const ViewClient = () => {
 
   return (
 
-    Object.key(cliente).length === 0 ? <p className="text-center text-4xl font-bold text-red-500">No Hay Resultado</p> :(
+    Object.keys(cliente).length === 0 ? <p className="text-center text-4xl font-bold text-red-500">No Hay Resultado</p> :(
     <div>
 
     { load?'...Loading':(
