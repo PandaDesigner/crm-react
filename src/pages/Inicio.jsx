@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react"
-//import { loadConfigFromFile } from "vite"
 import ClienteItem from '../components/ClienteItem'
 const Inicio = () => {
 
   const [ clientes, setClientes ] = useState([])
-  //const [load, setLoad] = useState(false)
+  
   useEffect(() => {
-    //setLoad(!load)
+
     const obtenerClienteAPI = async () =>{
       try {
         const url = 'http://localhost:4000/clientes'
@@ -17,7 +16,7 @@ const Inicio = () => {
       } catch (error) {
         console.log(error)
       }
-      //setLoad(false)
+
     }
   
     obtenerClienteAPI()
