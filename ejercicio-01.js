@@ -4,6 +4,8 @@ La prueba espera que proporcione un objeto Calculadora con un método promedio:
 Calculator.average()
 La prueba también espera que cuando no pase argumentos, devuelva 0. Se espera que los argumentos sean números enteros.
 Espera Calculator.average(3,4,5)volver 4.
+https://www.codewars.com/kata/529f32794a6db5d32a00071f/train/javascript
+
 */
 const Calculator = {
     average: function(...argument) {
