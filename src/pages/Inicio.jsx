@@ -20,7 +20,7 @@ const Inicio = () => {
       }
 
     }
-  
+  console.log('desde el '+ import.meta.env.VITE_API_URL);
     obtenerClienteAPI()
   }, [])
   

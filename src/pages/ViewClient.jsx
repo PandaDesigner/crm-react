@@ -22,9 +22,9 @@ export const ViewClient = () => {
       } catch (error) {
         console.log(error)
       }
-      setTimeout(()=>{
+
         setLoad(false)
-      },2000)
+      
     }
     obtenerClienteAPI()
   }, [])

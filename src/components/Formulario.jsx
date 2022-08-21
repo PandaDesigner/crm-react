@@ -31,7 +31,7 @@ const Formulario = ({cliente, load}) => {
         try {
             let respuesta
             if(cliente.id){
-                const url = `http://localhost:4000/clientes/${cliente.id}`
+                const url = `${import.meta.env.VITE_API_URL}/${cliente.id}`
 
                 respuesta = await fetch(url, {
                     method: 'PUT',
@@ -42,7 +42,7 @@ const Formulario = ({cliente, load}) => {
                 })
             }
             else{
-                const url = 'http://localhost:4000/clientes'
+                const url = import.meta.env.VITE_API_URL
 
                 respuesta = await fetch(url, {
                     method: 'POST',
@@ -52,6 +52,7 @@ const Formulario = ({cliente, load}) => {
                     }
                 })
             }
+            console.log(url)
 
             await respuesta.json()
             navigete('/clientes')
