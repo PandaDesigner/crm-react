@@ -1,7 +1,7 @@
 {
   "clientes": [
     {
-      "nombre": "Pedro Fernandez",
+      "nombre": "Pedro Maestre",
       "empresa": "Panda Designers",
       "email": "pand4designers@gmail.com",
       "telefono": "3184629849",
@@ -25,7 +25,7 @@
       "id": 3
     },
     {
-      "nombre": "Maryoris Ramirez",
+      "nombre": "Maryoris",
       "empresa": "Jodedera especial",
       "email": "mayorisramirez@gmail.com",
       "telefono": "31554694535",

@@ -3,9 +3,10 @@ import { Formik, Form, Field } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import { Alert } from './Alert'
+import { Spinner } from './Spinner'
 
 
-const Formulario = () => {
+const Formulario = ({cliente, load}) => {
 
     const navigete = useNavigate()
 
@@ -28,19 +29,31 @@ const Formulario = () => {
 
     const handelSubmit = async (valores) =>{
         try {
-            const url = 'http://localhost:4000/clientes'
+            let respuesta
+            if(cliente.id){
+                const url = `http://localhost:4000/clientes/${cliente.id}`
 
-            const respuesta = await fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(valores),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            console.log(respuesta);
-            const resultado = await respuesta.json()
-            console.log(resultado)
+                respuesta = await fetch(url, {
+                    method: 'PUT',
+                    body: JSON.stringify(valores),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
+            else{
+                const url = 'http://localhost:4000/clientes'
 
+                respuesta = await fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(valores),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
+
+            await respuesta.json()
             navigete('/clientes')
         } catch (error) {
             console.log(error)
@@ -48,16 +61,18 @@ const Formulario = () => {
     }
 
   return (
+    load ? <Spinner/>:(
 <div className='bg-gray-50 mt-10 px-5 py-10 rounded-md shadow-md w-full md:w-[100%] mx-auto'>
-    <h1 className='text-indigo-600 font-bold text-xl uppercase text-center'>Agregar Cliente</h1>
+    <h1 className='text-indigo-600 font-bold text-xl uppercase text-center'>{Object.keys(cliente).length === 0 ?"Agregar Cliente":"Editar Cliente"}</h1>
     <Formik
         initialValues={{
-            nombre:'',
-            empresa:'',
-            email:'',
-            telefono:'',
-            notas:''
+            nombre:cliente?.nombre ?? "",
+            empresa:cliente?.empresa ??"",
+            email:cliente?.email ??"",
+            telefono:cliente?.telefono ??"",
+            notas:cliente?.notas ??""
         }}
+        enableReinitialize={true}
         onSubmit={ async(values, {resetForm}) => {
             await handelSubmit(values)
             resetForm()
@@ -150,7 +165,7 @@ const Formulario = () => {
 
         <input
         type="submit"
-        value="Agregar Cliente"
+        value={Object.keys(cliente).length === 0 ?"Agregar Cliente":"Editar Cliente"}
         className='mt-5 w-full bg-indigo-700 p-3 text-sky-50 uppercase font-bold rounded-md hover:text-indigo-100 hover:bg-black ease-in-out duration-300 '
         />
 
@@ -158,6 +173,12 @@ const Formulario = () => {
     )}}
     </Formik>
 </div>
-  )}
+    )
+)}
+
+            Formulario.defaultProps = {
+                cliente:{},
+                load: false
+            }
 
 export default Formulario
