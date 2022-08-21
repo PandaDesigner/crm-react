@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react"
 import ClienteItem from '../components/ClienteItem'
+
 const Inicio = () => {
 
   const [ clientes, setClientes ] = useState([])
+
   
   useEffect(() => {
 
     const obtenerClienteAPI = async () =>{
       try {
-        const url = 'http://localhost:4000/clientes'
+        const url = import.meta.env.VITE_API_URL
         const respuesta = await fetch(url)
         const resultado = await respuesta.json()
         
@@ -27,7 +29,7 @@ const Inicio = () => {
     const confirmate = confirm(`¿Deseas eliminar el cliente ${id}?`)
     if(confirmate){
       try {
-        const url = `http://localhost:4000/clientes/${id}`
+        const url = `${import.meta.env.VITE_API_URL}/${id}`
         const ress = await fetch(url, {
           method: 'DELETE'
         })

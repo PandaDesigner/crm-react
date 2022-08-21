@@ -15,7 +15,7 @@ const EdicionCliente = () => {
     setLoad(!load)
     const obtenerClienteAPI = async () =>{
       try {
-        const url = `http://localhost:4000/clientes/${id}`
+        const url = `${import.meta.env.VITE_API_URL}/${id}`
         const ress = await fetch(url)
         const result = await ress.json()
         setCliente(result)
